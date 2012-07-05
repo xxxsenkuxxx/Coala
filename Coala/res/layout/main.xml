@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+   	android:background="@android:color/white">
+	<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center_vertical"
+        android:text="Coala"
+        android:textColor="#422113"
+        android:paddingLeft="2dp"
+        android:background="@drawable/title_bar"/>
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	    android:background="@drawable/main">
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:gravity="center_vertical|center_horizontal">
+			<ImageButton
+			    android:id="@+id/open_group_list_button"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:src="@drawable/main_input_button_style"
+			    android:background="#0000"/>
+			<ImageButton
+			    android:id="@+id/open_member_list_button"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:src="@drawable/main_call_button_style"
+			    android:layout_marginLeft="10dp"
+			    android:background="#0000"/>
+		</LinearLayout>
+	</RelativeLayout>
+</LinearLayout>

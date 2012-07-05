@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/group_row_bg">
+    <CheckBox
+        android:id="@+id/member_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false" 
+        android:clickable="false"
+        android:button="@drawable/checkbox_style"
+        android:layout_marginLeft="5dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/member_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="12sp"
+		android:text="Member"/>
+    <ImageButton 
+        android:id="@+id/call_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/call_button_style"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="#0000"/>
+</LinearLayout>
