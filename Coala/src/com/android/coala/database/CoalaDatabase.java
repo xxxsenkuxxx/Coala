@@ -277,7 +277,16 @@ public class CoalaDatabase {
 		ContentValues values = new ContentValues();
 		values.put(GROUP_NAME_COL, name.trim());
 		values.put(GROUP_ALARM_CYCLE_COL, alarmCycle);
-		return db.update(GROUP_TABLE_NAME, values, GROUP_ID_COL + "=" + id, null) == 1;
+		db.update(GROUP_TABLE_NAME, values, GROUP_ID_COL + "=" + id, null);
+		
+		ContentValues values2 = new ContentValues();
+		values2.put(MEMBER_ALARM_CYCLE_COL, alarmCycle);
+		
+		db.update(GROUP_TABLE_NAME, values, GROUP_ID_COL + "=" + id, null);
+		db.update(MEMBER_TABLE_NAME, values, MEMBER_GROUP_ID_COL + "=" + id, null);
+		
+		return true;
+		
 	}
 	
 	private class DatabaseHelper extends SQLiteOpenHelper {
@@ -407,7 +416,7 @@ public class CoalaDatabase {
 	
 	public void updateLastContactForTesting() {
 		ContentValues values = new ContentValues();
-		values.put(MEMBER_LAST_CONTACT_DATE_COL, "2012-06-10");
+		values.put(MEMBER_LAST_CONTACT_DATE_COL, "2012-06-20");
 		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=1", null);
 		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=2", null);
 		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=3", null);

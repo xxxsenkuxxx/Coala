@@ -27,7 +27,9 @@
 - MembersInGroupActivity 와 MemberListActivity 를 놀랄만큼 많이 닮았다.
 	-> 합쳐도 될것이다. Activity 에 Intent 를 다르게 연결하던지, 안드로이드 게임에서 봤던것 처럼 State 패턴을 이용하여 
 	특정 동작을 다르게 만들든지 하면될거 같다.
-	- 이 두개가 닮아서 DB 도 닮았다. - Copy & Paste 하였음 
+	- 이 두개가 닮아서 DB 도 닮았다. - Copy & Paste 하였음
+	 
+(b) text 입력창에서 글자수를 많이 넣으면 화면이 깨어진다.
 
 =================
 
