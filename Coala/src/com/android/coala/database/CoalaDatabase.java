@@ -18,7 +18,7 @@ import com.android.coala.ItemRow;
 import com.android.coala.Member;
 import com.android.coala.MemberItemRow;
 
-public class HerbDatabase {
+public class CoalaDatabase {
 	private static final String DATABASE_NAME = "database.db";
 	private static final int DATABASE_VERSION = 1;
 	
@@ -42,7 +42,7 @@ public class HerbDatabase {
 	private DatabaseHelper databaseHelper;
 	private SQLiteDatabase db;
 	
-	public HerbDatabase(Context context) {
+	public CoalaDatabase(Context context) {
 		databaseHelper = new DatabaseHelper(context);
 		db = databaseHelper.getWritableDatabase();
 	}

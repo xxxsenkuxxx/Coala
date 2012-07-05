@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class GroupListActivity extends ListActivity implements View.OnClickListener {
 	
@@ -96,7 +96,7 @@ public class GroupListActivity extends ListActivity implements View.OnClickListe
 		}
 		
 		private void update() {
-			HerbDatabase database = new HerbDatabase(context);
+			CoalaDatabase database = new CoalaDatabase(context);
 			groups = database.getGroups();
 			database.close();
 			notifyDataSetChanged();

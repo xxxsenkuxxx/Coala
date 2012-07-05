@@ -21,13 +21,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class GroupDeleteActivity extends ListActivity implements View.OnClickListener {
 
 	private ArrayList<Group> groups = null;
 	private GroupListAdapter groupListAdapter;
-	private HerbDatabase database;
+	private CoalaDatabase database;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class GroupDeleteActivity extends ListActivity implements View.OnClickLis
 	}
 	
 	private void init() {
-		database = new HerbDatabase(this);
+		database = new CoalaDatabase(this);
 		groups = database.getGroups();
 	}
 

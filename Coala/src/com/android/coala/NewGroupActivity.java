@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.android.coala.database.GroupNameEmptyException;
 import com.android.coala.database.GroupNameUsedException;
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class NewGroupActivity extends Activity implements View.OnClickListener {
 	private static final String [] ALARM_CYCLE_CAPTIONS = {"7일", "한달", "3달"};
@@ -50,7 +50,7 @@ public class NewGroupActivity extends Activity implements View.OnClickListener {
 			break;
 		case R.id.save_group_button:
 			String name = ((EditText)findViewById(R.id.editTextGroupName)).getText().toString();
-			HerbDatabase database = new HerbDatabase(this);
+			CoalaDatabase database = new CoalaDatabase(this);
 			try {
 				database.addGroup(Group.getNewGroup(name, alarmCycle));
 				finish();

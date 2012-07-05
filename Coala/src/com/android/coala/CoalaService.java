@@ -9,11 +9,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
-public class HerbService extends Service implements Runnable {
+public class CoalaService extends Service implements Runnable {
 	
-	private static final String TAG = HerbService.class.getSimpleName();
+	private static final String TAG = CoalaService.class.getSimpleName();
 	private static final long NEXT_DAY = 1000 * 60 * 60 * 24;
 	
 	private Handler handler = null;
@@ -22,7 +22,7 @@ public class HerbService extends Service implements Runnable {
 		super.onCreate();
 		handler = new Handler();
 		
-		Log.e(TAG, "Service OnCreate - HerbFamily");
+		Log.e(TAG, "Service OnCreate - Coala");
 	}
 	
 	public void onStart(Intent intent, int startId) {
@@ -38,7 +38,7 @@ public class HerbService extends Service implements Runnable {
 		long diff = tomorrow.getTime() - now.getTime();
 		handler.postDelayed(this, diff);
 		
-		Log.e(TAG, "Service onStart(" + diff + ") - HerbFamily");
+		Log.e(TAG, "Service onStart(" + diff + ") - Coala");
 	}
 	
 	public void onDestroy() {
@@ -51,7 +51,7 @@ public class HerbService extends Service implements Runnable {
 	}
 	 
 	public void run() {
-		HerbDatabase database = new HerbDatabase(this);
+		CoalaDatabase database = new CoalaDatabase(this);
 		if (database.existedNeedContactMember()) {
 			alarmNotification();
 		}

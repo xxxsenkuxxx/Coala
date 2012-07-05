@@ -14,9 +14,9 @@ public class BootReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.e(TAG, "BootReceiver - onReceive");
-		ComponentName cn = new ComponentName(context.getPackageName(), HerbService.class.getName());
+		ComponentName cn = new ComponentName(context.getPackageName(), CoalaService.class.getName());
 		context.startService(new Intent().setComponent(cn));
 		
-		Toast.makeText(context, "Herb Family", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "Coala", Toast.LENGTH_LONG).show();
 	}
 }

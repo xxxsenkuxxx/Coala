@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class MembersInGroupActivity extends ListActivity implements View.OnClickListener {
 //	private ArrayList<Member> members;
@@ -34,7 +34,7 @@ public class MembersInGroupActivity extends ListActivity implements View.OnClick
 		setContentView(R.layout.member_in_group);
 		
 		groupId = getIntent().getIntExtra("groupId", 0);
-		HerbDatabase database = new HerbDatabase(this);
+		CoalaDatabase database = new CoalaDatabase(this);
 		items = database.getMembersInGroup2(groupId);
 		database.close();
 		
@@ -113,7 +113,7 @@ public class MembersInGroupActivity extends ListActivity implements View.OnClick
 			callButton.setOnClickListener(new Button.OnClickListener() {
 				public void onClick(View v) {
 						Member member = (Member)v.getTag();
-						HerbDatabase database = new HerbDatabase(MembersInGroupActivity.this);
+						CoalaDatabase database = new CoalaDatabase(MembersInGroupActivity.this);
 						database.updateLastContactDate(member.getId());
 						
 						//전화번호를 바로 가져와서 update 한다.
@@ -170,7 +170,7 @@ public class MembersInGroupActivity extends ListActivity implements View.OnClick
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
-			HerbDatabase database = new HerbDatabase(this);
+			CoalaDatabase database = new CoalaDatabase(this);
 			items = database.getMembersInGroup2(groupId);
 			database.close();
 			memberListAdapter.notifyDataSetChanged();

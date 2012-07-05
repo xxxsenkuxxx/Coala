@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 
 public class EditGroupActivity extends Activity implements View.OnClickListener {
@@ -33,7 +33,7 @@ public class EditGroupActivity extends Activity implements View.OnClickListener 
 		getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 		
 		int groupId = getIntent().getIntExtra("groupId", 0);
-		HerbDatabase database = new HerbDatabase(this);
+		CoalaDatabase database = new CoalaDatabase(this);
 		group = database.getGroup(groupId);
 		database.close();
 		
@@ -68,7 +68,7 @@ public class EditGroupActivity extends Activity implements View.OnClickListener 
 				}).show();
 			break;
 		case R.id.save_group_button:
-			HerbDatabase database = new HerbDatabase(this);
+			CoalaDatabase database = new CoalaDatabase(this);
 			String name = ((EditText)findViewById(R.id.editTextGroupName)).getText().toString();
 			if (name.trim().equals("")) {
 				Toast.makeText(this, "그룹 이름을 입력하세요.", Toast.LENGTH_SHORT).show();

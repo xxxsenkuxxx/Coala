@@ -15,10 +15,13 @@ public class IntroActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.intro);
 		
-		startService(new Intent("com.herbfamily.HerbService"));
+		startService(new Intent("com.android.coala.CoalaService"));
 		
 		h = new Handler();
 		h.postDelayed(irun, 3000);
+		
+		
+		
 	}
 	
 	private Runnable irun = new Runnable() {

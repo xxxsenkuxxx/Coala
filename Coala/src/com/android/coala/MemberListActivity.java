@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class MemberListActivity extends ListActivity {
 	private MemberListAdapter memberListAdapter;
@@ -68,7 +68,7 @@ public class MemberListActivity extends ListActivity {
 
 		// DB 에서 구성원 목록을 가지고 온다. - 화면에 갱신한다.
 		public void updateMembers() {
-			HerbDatabase database = new HerbDatabase(context);
+			CoalaDatabase database = new CoalaDatabase(context);
 			
 			items = database.getMembersOrderByContactPriority();
 			ArrayList<ItemRow> members = database.getMembers2();
@@ -139,7 +139,7 @@ public class MemberListActivity extends ListActivity {
 			callButton.setOnClickListener(new Button.OnClickListener() {
 				public void onClick(View v) {
 						Member member = (Member)v.getTag();
-						HerbDatabase database = new HerbDatabase(MemberListActivity.this);
+						CoalaDatabase database = new CoalaDatabase(MemberListActivity.this);
 						database.updateLastContactDate(member.getId());
 						
 						//전화번호를 바로 가져와서 update 한다.

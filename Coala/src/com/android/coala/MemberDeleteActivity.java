@@ -22,7 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class MemberDeleteActivity extends ListActivity implements View.OnClickListener {
 	
@@ -30,7 +30,7 @@ public class MemberDeleteActivity extends ListActivity implements View.OnClickLi
 	private MemberListAdapter memberListAdapter;
 	private ImageButton buttonDeleteMember = null;
 	private CheckBox checkBoxSelectAllMembers = null;
-	private HerbDatabase database = null;
+	private CoalaDatabase database = null;
 	private int groupId = 0;
 
 	@Override
@@ -49,7 +49,7 @@ public class MemberDeleteActivity extends ListActivity implements View.OnClickLi
 	}
 
 	private void init() {
-		database = new HerbDatabase(this);
+		database = new CoalaDatabase(this);
 		members = database.getMembersInGroup(groupId);
 	}
 	

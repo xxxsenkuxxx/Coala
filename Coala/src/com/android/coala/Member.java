@@ -5,7 +5,6 @@ public class Member {
 	private int id = 0;
 	private String name = "";
 	private int groupId = 0;
-//	private int herbType = 1;
 	private int contactId;
 	private int contactRemainDays = 0;
 	private String lastContactDate = "";

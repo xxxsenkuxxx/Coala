@@ -22,13 +22,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.coala.database.HerbDatabase;
+import com.android.coala.database.CoalaDatabase;
 
 public class NewMemberListActivity extends ListActivity implements View.OnClickListener {
 	
 	private ArrayList<Contact> contacts = null;
 	private ContactsAdapter contactAdapter = null;
-	private HerbDatabase database = null;
+	private CoalaDatabase database = null;
 	private int groupId = 0;
 	private ArrayList<Member> members;
 
@@ -42,7 +42,7 @@ public class NewMemberListActivity extends ListActivity implements View.OnClickL
 		setContentView(R.layout.new_member_list);
 		groupId = getIntent().getIntExtra("groupId", 0);
 		
-		database = new HerbDatabase(this);
+		database = new CoalaDatabase(this);
 		
 		members = database.getMembers();
 		

@@ -18,13 +18,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		
 		findViewById(R.id.open_group_list_button).setOnClickListener(this);
 		findViewById(R.id.open_member_list_button).setOnClickListener(this);
-		
-//		HerbDatabase database = new HerbDatabase(this);
-//		String date = database.testDate();
-//		Log.e("DATE", "[" + date + "]");
-//		int diff = database.testJulianday();
-//		Log.e("DIFF", "[" + diff + "]");
-//		database.close();
 	}
 
 	public void onClick(View v) {
