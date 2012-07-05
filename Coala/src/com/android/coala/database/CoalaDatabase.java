@@ -404,4 +404,12 @@ public class CoalaDatabase {
 		values.put(MEMBER_NAME_COL, name);
 		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=" + id, null);
 	}
+	
+	public void updateLastContactForTesting() {
+		ContentValues values = new ContentValues();
+		values.put(MEMBER_LAST_CONTACT_DATE_COL, "2012-06-10");
+		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=1", null);
+		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=2", null);
+		db.update(MEMBER_TABLE_NAME, values, MEMBER_ID_COL + "=3", null);
+	}
 }

@@ -155,6 +155,8 @@ public class MemberListActivity extends ListActivity {
 						
 						database.close();
 						
+						memberListAdapter.updateMembers();
+						
 						Intent call = new Intent(Intent.ACTION_CALL);
 						call.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
 						startActivity(call);

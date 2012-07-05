@@ -129,6 +129,8 @@ public class MembersInGroupActivity extends ListActivity implements View.OnClick
 						
 						database.close();
 						
+						memberListAdapter.updateMembers();
+						
 						Intent call = new Intent(Intent.ACTION_CALL);
 						call.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
 						startActivity(call);
@@ -138,6 +140,13 @@ public class MembersInGroupActivity extends ListActivity implements View.OnClick
 			return convertView;
 		}
 		
+		protected void updateMembers() {
+			CoalaDatabase database = new CoalaDatabase(context);
+			items = database.getMembersInGroup2(groupId);
+			database.close();
+			notifyDataSetChanged();
+		}
+
 		private class ViewHolder {
 			private TextView memberName;
 			private TextView day;

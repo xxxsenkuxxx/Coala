@@ -43,7 +43,7 @@ public class NotiAlert extends Activity implements View.OnClickListener {
 
 			Notification notifi = new Notification(R.drawable.coala_icon,
 					"전화", System.currentTimeMillis());
-			notifi.setLatestEventInfo(NotiAlert.this, "Coala", "○○○! 연락을 기다리고있어요",
+			notifi.setLatestEventInfo(NotiAlert.this, "Coala", "연락을 기다리고있어요",
 					pendingIntent);
 			notifi.flags = Notification.FLAG_AUTO_CANCEL;
 			noti.notify(0, notifi);
