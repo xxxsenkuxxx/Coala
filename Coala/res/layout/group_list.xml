@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:background="#fbfbf6">
     <LinearLayout 
         android:id="@+id/group_list_button_bar"
         android:layout_width="fill_parent"
@@ -53,9 +53,8 @@
 	        android:id="@android:id/empty"
 			android:layout_width="fill_parent"
 			android:layout_height="fill_parent"
-			android:gravity="center_horizontal"
-			android:textSize="20sp"
-			android:textColor="@android:color/black"
-			android:text="@string/no_groups"/>
+	        android:textColor="#f79412"
+	        android:textSize="15dp"
+	        android:text="그룹을 추가해주세요"/>
     </LinearLayout>
 </RelativeLayout>

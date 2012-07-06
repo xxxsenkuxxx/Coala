@@ -2,25 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-   	android:background="@android:color/white">
-   	<TextView
+    android:background="#fbfbf6"
+    android:orientation="vertical" >
+
+    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:background="@drawable/title_bar"
         android:gravity="center_vertical"
+        android:paddingLeft="2dp"
         android:text="연락"
         android:textColor="#422113"
-        android:paddingLeft="2dp"
-        android:background="@drawable/title_bar" 
-        />
+        android:textSize="15sp" />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-    <TextView 
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@android:id/empty"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="no members"/>
+        android:text="구성원을 추가해주세요"
+        android:textColor="#f79412"
+        android:textSize="15dp" />
+
 </LinearLayout>

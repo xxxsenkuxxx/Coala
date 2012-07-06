@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:background="#fbfbf6">
 	<LinearLayout 
 	    android:id="@+id/group_menu_button_bar"
 	    android:layout_width="fill_parent"
@@ -59,7 +59,9 @@
 	        android:id="@android:id/empty"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:text="구성원이 없습니다."
+	        android:textColor="#f79412"
+	        android:textSize="15dp"
+	        android:text="구성원을 추가해주세요"
 	        android:layout_above="@id/group_menu_button_bar" />
 	</LinearLayout>
 </RelativeLayout>
