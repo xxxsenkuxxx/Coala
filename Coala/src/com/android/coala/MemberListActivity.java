@@ -2,8 +2,10 @@ package com.android.coala;
 
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -24,7 +26,6 @@ import com.android.coala.database.CoalaDatabase;
 public class MemberListActivity extends ListActivity {
 	private MemberListAdapter memberListAdapter;
 	
-	//acitivity 실행될때 호출
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,7 +33,6 @@ public class MemberListActivity extends ListActivity {
 		setupWidgets();
 	}
 
-	// activity 가 종료되기 바로 직전에 실행
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -66,7 +66,6 @@ public class MemberListActivity extends ListActivity {
 			inflater = LayoutInflater.from(context);
 		}
 
-		// DB 에서 구성원 목록을 가지고 온다. - 화면에 갱신한다.
 		public void updateMembers() {
 			CoalaDatabase database = new CoalaDatabase(context);
 			
@@ -138,30 +137,32 @@ public class MemberListActivity extends ListActivity {
 			
 			callButton.setOnClickListener(new Button.OnClickListener() {
 				public void onClick(View v) {
-						Member member = (Member)v.getTag();
-						CoalaDatabase database = new CoalaDatabase(MemberListActivity.this);
-						database.updateLastContactDate(member.getId());
-						
-						//전화번호를 바로 가져와서 update 한다.
-						Contact contact = getContact(member.getContactId());
-						
-						if (contact == null) {
-							//해당 사용자를 연락처에서 찾을 수 없는 경우 어떻게 할것인가?
-						}
-						
-						if ( ! member.getName().equals(contact.getName())) {
-							database.updateMemberName(member.getId(), contact.getName());
-						}
-						
-						database.close();
-						
-						memberListAdapter.updateMembers();
-						
-						Intent call = new Intent(Intent.ACTION_CALL);
-						call.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
-						startActivity(call);
+					Member member = (Member)v.getTag();
+					Contact contact = getContact(member.getContactId());
+					if (contact == null) {
+						new AlertDialog.Builder(MemberListActivity.this)
+						.setIcon(android.R.drawable.ic_dialog_alert)
+						.setTitle(R.string.check_member_title)
+						.setMessage(R.string.not_found_contact)
+						.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+							}
+						}).show();
 					}
-				});
+						
+					CoalaDatabase database = new CoalaDatabase(MemberListActivity.this);
+					database.updateLastContactDate(member.getId());
+					database.updateMemberName(member.getId(), contact.getName());
+					database.close();
+					
+					memberListAdapter.updateMembers();
+					
+					Intent call = new Intent(Intent.ACTION_CALL);
+					call.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
+					startActivity(call);
+				}
+			});
 			
 			return convertView;
 		}

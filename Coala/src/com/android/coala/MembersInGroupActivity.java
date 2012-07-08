@@ -2,8 +2,10 @@ package com.android.coala;
 
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -113,20 +115,22 @@ public class MembersInGroupActivity extends ListActivity implements View.OnClick
 			callButton.setOnClickListener(new Button.OnClickListener() {
 				public void onClick(View v) {
 						Member member = (Member)v.getTag();
+						Contact contact = getContact(member.getContactId());
+						if (contact == null) {
+							new AlertDialog.Builder(MembersInGroupActivity.this)
+							.setIcon(android.R.drawable.ic_dialog_alert)
+							.setTitle(R.string.check_member_title)
+							.setMessage(R.string.not_found_contact)
+							.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {
+									dialog.dismiss();
+								}
+							}).show();
+						}
+						
 						CoalaDatabase database = new CoalaDatabase(MembersInGroupActivity.this);
 						database.updateLastContactDate(member.getId());
-						
-						//전화번호를 바로 가져와서 update 한다.
-						Contact contact = getContact(member.getContactId());
-						
-						if (contact == null) {
-							//해당 사용자를 연락처에서 찾을 수 없는 경우 어떻게 할것인가?
-						}
-						
-						if ( ! member.getName().equals(contact.getName())) {
-							database.updateMemberName(member.getId(), contact.getName());
-						}
-						
+						database.updateMemberName(member.getId(), contact.getName());
 						database.close();
 						
 						memberListAdapter.updateMembers();

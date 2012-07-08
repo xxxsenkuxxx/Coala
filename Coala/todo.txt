@@ -7,27 +7,23 @@
 >> 작업
 - group_row_bg 는 dialog_row_item_bg 로 변경해서 다른곳에서 다 사용가능하게 한다.
 - member_item_row 와 group_item_row 는 dialog 상태와 activity 상태일때 변화를 주어야 하니 따로 간다.
-- 전화번호를 다시 표시해야 하니, 전화번호 DB 를 다시 가져와야 한다. (변경되면 업데이트 해준다.)
 - contact row - member row 합치기
 - 그룹안의 멤버 목록에서 전화걸기 걸면 죽는다.
-- 프로젝트는 Coala 로 변경해야 한다.
 - getmembers2() 는 적절하게 이름을 변경해 주어야 한다.
 - 구성원 목록 얻어 올때 연락일을 넘긴 사람들을 가지고 온다.
 - memberListActivity 는 adapter 안에 넣어 주어야하는구나...(전화 걸면 마지막 연락일이 변경되어야 하니깐 ㅋ); 
--> 이거 리팩토링 다 할려면 쓰러지겠다.
 -> Member delete activity - adapter 안에서 members 를 가지고 있어도 될거 같은데.
--> 전화걸기를 눌렀을 경우 존재하지 않는 데이터는 어떻게 처리 할것인가.?
-- 그룹 편집에서 알람 주기를 변경하면 소속된 구성원의 알람 주기도 같이 변경해 주어야 한다.
 - 전화를 하고 나서 마지막 연락일이 업데이트가 안되는거 같다.
-- 전화할때 사용자가 존재 하지 않을 경우 처리 하기
 - 남은 날이 어떻게 -8이 나오지???
-- 목록이 하나 도 없을 경우, 텍스트만 출력되는데 이미지로 할것인가?
 - group_item_row / group_list_item_row
 - member_item_row / member_list_item_row
 - MembersInGroupActivity 와 MemberListActivity 를 놀랄만큼 많이 닮았다.
 	-> 합쳐도 될것이다. Activity 에 Intent 를 다르게 연결하던지, 안드로이드 게임에서 봤던것 처럼 State 패턴을 이용하여 
 	특정 동작을 다르게 만들든지 하면될거 같다.
 	- 이 두개가 닮아서 DB 도 닮았다. - Copy & Paste 하였음
+	
+- meber list 에서 adapter 를 뺄수 있는가?
+- 해당 사용자가 없을 경우는 메시지 처리한다.	
 	 
 (b) text 입력창에서 글자수를 많이 넣으면 화면이 깨어진다.
 
